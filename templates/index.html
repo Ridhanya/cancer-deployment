@@ -1,12 +1,39 @@
 {% extends "base.html" %} {% block content %}
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Biotechnology Department</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><b>Ovarian Cancer Diagnosis</b></h1>
+    
+    
+  </div>
+  <!-- Home -->
+  <div class="w3-container" id="Home" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Home</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Made by Students of National Institute of Calicut under School of Biotechnology. <br>Project guided by Dr.Rajanikant G K. <br> Student Team : <br>K Nikhil Sai Varma <br> M S B Roshan<br> Ridhanya Sree B<br> Urvashi Shukla<br></p>
+     
+  </div>
+
+<div class="w3-container" id="showcase" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Diagnosis</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+<h2 style="margin-left:6px;margin-right:100px">Choose the slide Image</h2>
 
 
-<h2>Cancer predictor for Ovarain Cancer</h2>
-
-<div>
     <form id="upload-file" method="post" enctype="multipart/form-data">
-        <label for="imageUpload" class="upload-label">
-            Choose...
+        <label for="imageUpload" class="upload-label" >
+            Upload
         </label>
         <input type="file" name="file" id="imageUpload" >
     </form>
@@ -44,9 +71,35 @@
     
 </div>
 
+</div>
+<div class="loader" style="display:none;"></div>
+
+    <h3 id="result">
+        <span> </span>
+    </h3>
 
 
-
+<!-- Contact -->
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Contact.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Feel free to contact us</p>
+    <form action="/action_page.php" target="_blank">
+      <div class="w3-section">
+        <label>Name</label>
+        <input class="w3-input w3-border" type="text" name="Name" required>
+      </div>
+      <div class="w3-section">
+        <label>Email</label>
+        <input class="w3-input w3-border" type="text" name="Email" required>
+      </div>
+      <div class="w3-section">
+        <label>Message</label>
+        <input class="w3-input w3-border" type="text" name="Message" required>
+      </div>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Send Message</button>
+    </form>  
+  </div>
 
 
     
@@ -55,11 +108,7 @@
 
 
 
-    <div class="loader" style="display:none;"></div>
-
-    <h3 id="result">
-        <span> </span>
-    </h3>
+    
 
 </div>
 
