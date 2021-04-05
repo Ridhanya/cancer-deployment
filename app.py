@@ -29,13 +29,13 @@ import skimage.morphology as sk_morphology
 app = Flask(__name__)
 
 
-#MODEL_PATH = 'model33.h5'
+MODEL_PATH = 'model33.h5'
 #MODEL_PATH = 'model/saved'
-stage_model= 'model/model37.h5'
+#stage_model= 'model/saved'
 
 
-#model = load_model(MODEL_PATH)
-stagemodel=load_model(stage_model)
+model = load_model(MODEL_PATH)
+#stagemodel=load_model(stage_model)
 #model._make_predict_function()   
 
 
@@ -244,8 +244,8 @@ def upload():
         
         stage= model_predict(img, stagemodel)
         print(stage)
-        """count=0
-        for y in np.nditer(preds):
+        count=0
+        for y in np.nditer(stage):
         	if(y>=0.5 and count ==0):
         		
         		ans="Normal (No Cancer)"
@@ -254,8 +254,8 @@ def upload():
         	else:
         		ans="Positive (Ovarian Cancer confirmed)"
         		count=1
-        		break"""
-        st="ERROR"
+        		break
+        """st="ERROR"
         cou=0
 
         for d in np.nditer(stage):
@@ -274,16 +274,16 @@ def upload():
         		break
         	elif(d>=0.5 and cou==5):
         		st="Normal - Cancer Negative"
-        		break
+        		break"""
 
 
                  
         #pred_class = decode_predictions(preds, top=1)   
                      
-        return (st)
+        return (ans)
     return None
 
-@app.route("/shot", methods=['GET', 'POST'])
+@app.route("/shot")
 def shot():
 	return render_template('pred.html',user_image="static/im.jpg",pred_image="static/ima.jpg")
 
@@ -293,3 +293,4 @@ def shot():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
